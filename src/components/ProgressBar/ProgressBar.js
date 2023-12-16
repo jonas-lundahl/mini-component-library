@@ -5,7 +5,12 @@ import styled from "styled-components";
 import { COLORS } from "../../constants";
 import VisuallyHidden from "../VisuallyHidden";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs((p) => ({
+  role: "progressbar",
+  "aria-valuemin": 0,
+  "aria-valuemax": 100,
+  "aria-valuenow": p.value,
+}))`
   border-radius: ${(p) => (p.size === "large" ? 8 : 4)}px;
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
   overflow: hidden;
